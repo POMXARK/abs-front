@@ -1,8 +1,11 @@
 <template>
-  <Register/>
+  <div>
+    <Login/>
+  </div>
 </template>
 
 <script>
+
 </script>
 
 <style>

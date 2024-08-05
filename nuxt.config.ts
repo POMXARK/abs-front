@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss'
+    "@nuxt/ui",
+    '@nuxtjs/tailwindcss',
   ],
   app: {
     head: {

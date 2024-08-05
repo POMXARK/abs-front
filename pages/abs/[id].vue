@@ -23,6 +23,6 @@ if (!ab.value) {
 }
 
 definePageMeta({
-  layout: "products",
+  layout: "abs",
 })
 </script>

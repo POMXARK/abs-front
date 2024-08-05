@@ -1,3 +1,10 @@
+# Сервис объявлений
+
+![me](https://github.com/POMXARK/abs-front/blob/develop/docs/abs_test_1.gif)
+![me](https://github.com/POMXARK/abs-front/blob/develop/docs/abs_test_2.gif)
+
+node 20
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
