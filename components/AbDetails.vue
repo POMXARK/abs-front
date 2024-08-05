@@ -9,11 +9,11 @@
         <p class="text-xl my-7">Цена: {{ ab.price }} руб.</p>
         <h3 class="font-bold border-b-2 mb-4 pb-2">Описание:</h3>
         <p class="mb-7">{{ ab.fields.description }}</p>
-        <div class="grid">
-          <div v-for="photo in ab.fields.photos">
-            <img :src="`${photo.link}`" class="" />
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-4 gap-5">
+      <div v-for="photo in ab.fields.photos">
+        <ImageCard :photo="photo" />
       </div>
     </div>
   </div>

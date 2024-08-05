@@ -10,19 +10,19 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig()
 const { id } = useRoute().params
-const uri = 'http://127.0.0.1/api/v1/abs/' + id + '?fields[]=description&fields[]=photos'
+
+const uri = config.public.apiBase + '/abs/' + id + '?fields[]=description&fields[]=photos'
 
 //  fetch the products
 const { data: ab } = await useFetch(uri, { key: id })
-
-console.log(ab)
 
 if (!ab.value) {
   throw createError({ statusCode: 404, statusMessage: 'Product not found' })
 }
 
 definePageMeta({
-  layout: "products",
+  layout: "abs",
 })
 </script>

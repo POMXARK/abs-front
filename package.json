@@ -10,7 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.18.3",
     "nuxt": "^3.12.4",
+    "nuxt-security": "^2.0.0-rc.9",
     "vue": "latest"
   },
   "devDependencies": {
