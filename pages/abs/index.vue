@@ -13,21 +13,16 @@ const orderCreated = ref(ordersCreated[0].value)
 const router = useRouter()
 
 const load = async () => {
-
-  console.log('orderPrice.value', orderPrice.value)
-  console.log('orderCreated.value', orderCreated.value)
+  const config = useRuntimeConfig()
 
   //  fetch the products
-  const uri = `http://127.0.0.1/api/v1/abs?page=${page.value}&sort_by_price=${orderPrice.value}&sort_by_created_at=${orderCreated.value}`
+  const uri = config.public.apiBase + `/abs?page=${page.value}&sort_by_price=${orderPrice.value}&sort_by_created_at=${orderCreated.value}`
   const {data} = (await useFetch(uri))
-  console.log(data._rawValue.data)
-  console.log(data._rawValue.meta)
 
   abs.value = data._rawValue.data
   total.value = data._rawValue.meta.total
   pageCount.value = data._rawValue.meta.last_page - 1
   page.value = data._rawValue.meta.current_page
-  console.log(pageCount.value)
 
   router.push({query: {page: page.value, sort_by_price: orderPrice.value, sort_by_created_at: orderCreated.value}})
 }
@@ -63,11 +58,9 @@ definePageMeta({
     </div>
     <br>
     <UPagination @click="load" v-model="page" :page-count="pageCount" :total="total"
-
      :to="(page: number, sort_by_price, sort_by_created_at) => ({
       query: { page, sort_by_price, sort_by_created_at },
     })"
-
     />
   </div>
 </template>

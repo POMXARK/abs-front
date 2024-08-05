@@ -5,10 +5,9 @@ const password = defineModel('password')
 const remember = defineModel('remember')
 
 const submit = async () => {
-  console.log('Login')
-  console.log(name.value)
+  const config = useRuntimeConfig()
 
-  const {user, token} = (await $fetch('http://127.0.0.1/api/v1/login', {
+  const {user, token} = (await $fetch(config.public.apiBase + '/login', {
     method: 'POST',
     body: JSON.stringify({
       email: email.value,
@@ -16,9 +15,6 @@ const submit = async () => {
     }),
     headers: {"Content-Type": "application/json"}
   }))
-
-  console.log('user:', user)
-  console.log('token:', token)
 };
 </script>
 

@@ -8,7 +8,9 @@ const price = defineModel('price')
 
 
 const submit = async () => {
-  const data = (await $fetch('http://127.0.0.1/api/v1/abs', {
+  const config = useRuntimeConfig()
+
+  (await $fetch(config.public.apiBase + '/abs', {
     method: 'POST',
     body: JSON.stringify({
       name: name.value,
@@ -19,7 +21,6 @@ const submit = async () => {
     headers: {"Content-Type": "application/json"}
   }))
 
-  console.log('data:', data)
   window.location.reload()
 };
 

@@ -14,10 +14,9 @@
 // });
 
 const submit = async () => {
-  console.log('Register')
-  console.log(name.value)
+  const config = useRuntimeConfig()
 
-  const {user, token} = (await $fetch('http://127.0.0.1/api/v1/register', {
+  const {user, token} = (await $fetch(config.public.apiBase + '/register', {
     method: 'POST',
     body: JSON.stringify({
       name: name.value,
@@ -27,9 +26,6 @@ const submit = async () => {
     }),
     headers: {"Content-Type": "application/json"}
   }))
-
-  console.log('user:', user)
-  console.log('token:', token)
 };
 
 const name = defineModel('name')
